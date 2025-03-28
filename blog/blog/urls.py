@@ -21,6 +21,7 @@ from bloginterface.views import *
 urlpatterns = [
     path('', Home, name= 'home'),
     path('create_post/', create_post, name= 'create_post'),
+    path('post_details/<int:pk>/', post_details, name= 'post_details'),
 
 
     path('admin/', admin.site.urls),

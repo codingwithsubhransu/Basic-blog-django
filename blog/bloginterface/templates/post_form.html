@@ -1,6 +1,33 @@
 {% extends 'base.html' %}
-{% block start%}
-
-
-
+{% block title %}{% if form.instance.id %}Edit Post{% else %}New Post{% endif %}{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">{% if form.instance.id %}Edit Post{% else %}Create a New Post{% endif %}</h2>
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="id_title" class="form-label">Title</label>
+                            {{ form.title|add_class:"form-control" }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_content" class="form-label">Content</label>
+                            {{ form.content|add_class:"form-control" }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_category" class="form-label">Category</label>
+                            {{ form.category|add_class:"form-select" }}
+                        </div>
+                        <div class="mb-3 form-check">
+                            {{ form.published|add_class:"form-check-input" }}
+                            <label for="id_published" class="form-check-label">Published</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
