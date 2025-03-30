@@ -1,32 +1,32 @@
 {% extends 'base.html' %}
-{% block title %}New Post{% endblock %}
+{% block title %}Edit Post{% endblock %}
 {% block content %}
     <div class="row">
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <h2 class="card-title">Create a New Post</h2>
+                    <h2 class="card-title">Edit Post</h2>
                     <form method="post">
                         {% csrf_token %}
                         <div class="mb-3">
                             <label for="id_title" class="form-label">Title</label>
-                            <input type="text" name="title" id="id_title" class="form-control" maxlength="200" required>
+                            <input type="text" name="title" id="id_title" class="form-control" maxlength="200" required value="{{ details.title }}">
                         </div>
                         <div class="mb-3">
                             <label for="id_content" class="form-label">Content</label>
-                            <textarea name="content" id="id_content" class="form-control" rows="5" required></textarea>
+                            <textarea name="content" id="id_content" class="form-control" rows="5" required>{{ details.content }}</textarea>
                         </div>
                         <div class="mb-3">
                             <label for="id_category" class="form-label">Category</label>
                             <select name="category" id="id_category" class="form-select">
                                 <option value="">---------</option>
                                 {% for category in categories %}
-                                    <option value="{{ category.pk }}">{{ category.name }}</option>
+                                <option value="{{ category.pk }}" {% if details.category.pk == category.pk %}selected{% endif %}>{{ category.name }}</option>
                                 {% endfor %}
                             </select>
                         </div>
                         <div class="mb-3 form-check">
-                            <input type="checkbox" name="published" id="id_published" class="form-check-input">
+                            <input type="checkbox" name="published" id="id_published" class="form-check-input" {% if details.published %}checked{% endif %}>
                             <label for="id_published" class="form-check-label">Published</label>
                         </div>
                         {% if error %}
