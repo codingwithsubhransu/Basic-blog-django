@@ -21,29 +21,29 @@ This is a **Blog API** built using **Django REST Framework (DRF)** and **Simple 
 `git clone https://github.com/yourusername/blog-api.git`
 `cd blog-api`
 
-2️⃣ Create a Virtual Environment
+###2️⃣ Create a Virtual Environment
 
 `python -m venv venv
 source venv/bin/activate  # On Windows use `venv\Scripts\activate`
 `
 
-3️⃣ Install Dependencies
+###3️⃣ Install Dependencies
 
 `pip install -r requirements.txt`
 
-4️⃣ Apply Migrations
+###4️⃣ Apply Migrations
 
 `python manage.py migrate`
 
-5️⃣ Create a Superuser (Optional)
+###5️⃣ Create a Superuser (Optional)
 
 `python manage.py createsuperuser`
 
-6️⃣ Run the Server
+###6️⃣ Run the Server
 
 `python manage.py runserver`
 
-🛠️ API Endpoints
+##🛠️ API Endpoints
 
 🔹 Authentication
 
@@ -60,7 +60,7 @@ GET	                    /api/v1/blogs/	                        Get all blog post
 DELETE	                /api/v1/blogs/{id}/delete/	           Delete a blog (only author)Authenticated
 
 
-🔑 Authentication
+###🔑 Authentication
 This project uses JWT Authentication.
 After logging in, include the access token in headers:
 
@@ -70,10 +70,10 @@ To get a new access token, send a POST request:
 
 `curl -X POST http://127.0.0.1:8000/api/v1/login/ -d "username=user&password=pass"`
 
-📜 License
+#📜 License
 This project is open-source and available under the MIT License.
 
-📧 Contact
+#📧 Contact
 
 👤Subhransu Sekhar Rout
 📧 Email: subhransusekharrout987@gmail.com
